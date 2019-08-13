@@ -335,9 +335,12 @@ console.log(retirement);
 /////////////////////////////////////////////////
 // Lecture: Arrays
 
+/*
 const boxes = document.querySelectorAll('.box');
 
 // ES5
+// we used a hack to change the nodeList to an array
+// and used forEach to loop through elements
 var boxesArr5 = Array.prototype.slice.call(boxes);
 boxesArr5.forEach(function(cur) {
     cur.style.backgroundColor = 'dodgerblue';
@@ -345,13 +348,20 @@ boxesArr5.forEach(function(cur) {
 
 
 // ES6
+// we simply can use the from method to change it to an array
 const boxesArr6 = Array.from(boxes);
 boxesArr6.forEach(cur => cur.style.backgroundColor = 'dodgerblue');
+*/
+
 
 
 
 
 // ES5
+// when we want to loop over an array, we used the forEach or the map method
+// but if we want to use the break/continue statement in a loop, we can't use forEach or map
+// so we have to use a simple for loop in ES5
+/*
 for(var i = 0; i < boxesArr5.length; i++) {
     if(boxesArr5[i].className === 'box blue') {
         continue; //skips the iteration of the loop and go right to the next one
@@ -359,10 +369,38 @@ for(var i = 0; i < boxesArr5.length; i++) {
 
     boxesArr5[i].textContent = 'I changed to blue!';
 }
+*/
+
 
 
 // ES6
+// We can use the for of.(where we can use the continue/break statement)
+// it's basically forEach/map combined with the for loop.
+/*
+for (const cur of boxesArr6) {
+    if (cur.className.includes('blue')) {
+        continue;
+    }
+    cur.textContent = 'I changed to blue!';
+}
+*/
 
+
+
+/*
+// ES5
+var ages = [12,17,8,21,14,11];
+var full = ages.map(function(cur) {
+    return cur >= 18;
+});
+console.log(full);
+console.log(full.indexOf(true));
+console.log(ages[full.indexOf(true)]);
+
+// ES6
+console.log(ages.findIndex(cur => cur >= 18));
+console.log(ages.find(cur => cur >=18));
+*/
 
 
 

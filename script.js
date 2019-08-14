@@ -635,7 +635,7 @@ console.log(question.get(ans === question.get('correct')));  //beauty of MAPS! x
 
 // 1. class definitions are NOT hoisted. have first implement a class and only later in our code we can start using it.
 // 2. we can only add methods to classes but not properties.
-
+/*
 // ES5
 var Person5 = function(name, yearOfBirth, job) {
     this.name = name;
@@ -673,19 +673,7 @@ class Person6 {
 const john6 = new Person6('John', 1990, 'teacher');
 
 Person6.greeting();
-
-
-
-
-
-
-
-
-
-
-
-
-
+*/
 
 
 
@@ -700,11 +688,86 @@ Person6.greeting();
 /////////////////////////////////////////////////
 // Lecture: Classes with Subclasses
 
+/*
+// ES5
+var Person5 = function(name, yearOfBirth, job) {
+    this.name = name;
+    this.yearOfBirth = yearOfBirth;
+    this.job = job;
+}
+
+Person5.prototype.calculateAge = function() {
+    var age = new Date().getFullYear() - this.yearOfBirth;
+    console.log(age);
+}
+
+var Athlete5 = function(name, yearOfBirth, job, olympicGames, medals) {
+    // when creating a new athlete object, 'new' creates a new empty object, calls the athlete function constructor, and sets the this keyword to the newly created empty object.
+    // so in the execution context, that we are in here, the this keyword will point to the new empty object
+    // now if we want the person's properties(name,yearOfBirth,job) to be set on the new athlete object then we need to call the person function constructor with the this keyword also set to our newly created athlete object
+    // that's exactly what we do in the next line. so after this, all the properties will be set in the athlete object that's created by the new operator.
+    Person5.call(this, name, yearOfBirth, job);
+    this.olympicGames = olympicGames;
+    this.medals = medals;
+}
+
+
+
+// object.create allows us to manually set the prototype of an object.
+// we want the prototype of the athlete to be the prototype of the person, so they become connected.
+Athlete5.prototype = Object.create(Person5.prototype);
+
+
+Athlete5.prototype.wonMedal = function() {
+    this.medals++;
+    console.log(this.medals);
+}
+
+
+
+var johnAthlete5 = new Athlete5('John', 1990, 'swimmer', 3, 10);
+johnAthlete5.calculateAge();
+johnAthlete5.wonMedal();
 
 
 
 
 
+
+
+// ES6
+// prefered (but understand it behind the scenes)
+class Person6 {
+    constructor (name, yearOfBirth, job) {
+        this.name = name;
+        this.yearOfBirth = yearOfBirth;
+        this.job = job;
+    }
+
+    calculateAge() {
+        var age = new Date().getFullYear() - this.yearOfBirth;
+        console.log(age);    
+    }
+}
+
+class Athlete6 extends Person6 {
+    constructor (name, yearOfBirth, job, olympicGames, medals) {
+        super(name, yearOfBirth, job);
+        this.olympicGames = olympicGames;
+        this.medals = medals;
+    }
+
+    wonMedal() {
+        this.medals++;
+        console.log(this.medals);
+    }
+}
+
+const johnAthlete6 = new Athlete6('John', 1990, 'swimmer', 3, 10);
+
+johnAthlete6.calculateAge();
+johnAthlete6.wonMedal();
+*/
 
 
 

@@ -563,19 +563,60 @@ var emily = new SmithPerson('Emily', 1983, 'Diaz', 'spanish');
 /////////////////////////////////////////////////
 // Lecture: Maps
 
+// a new key value datastructure in ES6
+
+// 1. we can use anything as keys
+// 2. iterable
+// 3. easy to get the size of the map
+// 4. can easily add/remove data from a map
+
+
+
+
+// basic methods
+// set
+const question = new Map();
+question.set('question', 'What is the official name of the latest major JavaScript version?');
+question.set(1, 'ES5');
+question.set(2, 'ES6');
+question.set(3, 'ES2015');
+question.set(4, 'ES7');
+question.set('correct', 3);
+question.set(true, 'Correct answer :D');
+question.set(false, 'Wrong, please try again!');
+
+// get
+console.log(question.get('question'));
+//console.log(question.size);
+
+// has, delete
+if(question.has(4)) {
+    //question.delete(4);
+    //console.log('Answer 4 is here');
+};
+
+// clear
+//question.clear();
 
 
 
 
 
 
+// looping
 
+// for each
+//question.forEach((value, key) => console.log(`This is ${key}, and it's set to ${value}`));
 
+// for of
+for (let [key,value] of question.entries()) {
+    if (typeof(key) === 'number') {
+        console.log(`Answer ${key}:${value}`);
+    }
+}
 
-
-
-
-
+const ans = parseInt(prompt('Write the correct answer'));
+console.log(question.get(ans === question.get('correct')));  //beauty of MAPS! xD
 
 
 

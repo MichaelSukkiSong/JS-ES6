@@ -563,6 +563,8 @@ var emily = new SmithPerson('Emily', 1983, 'Diaz', 'spanish');
 /////////////////////////////////////////////////
 // Lecture: Maps
 
+// new data structure
+// up ubtil ES6 we had to use objects as hash maps, but now in ES6 we have maps
 // a new key value datastructure in ES6
 
 // 1. we can use anything as keys
@@ -572,9 +574,9 @@ var emily = new SmithPerson('Emily', 1983, 'Diaz', 'spanish');
 
 
 
-
+/*
 // basic methods
-// set
+// set method
 const question = new Map();
 question.set('question', 'What is the official name of the latest major JavaScript version?');
 question.set(1, 'ES5');
@@ -585,24 +587,24 @@ question.set('correct', 3);
 question.set(true, 'Correct answer :D');
 question.set(false, 'Wrong, please try again!');
 
-// get
+// get method
 console.log(question.get('question'));
 //console.log(question.size);
 
-// has, delete
+// has, delete method
 if(question.has(4)) {
     //question.delete(4);
     //console.log('Answer 4 is here');
 };
 
-// clear
+// clear method
 //question.clear();
+*/
 
 
 
 
-
-
+/*
 // looping
 
 // for each
@@ -617,6 +619,7 @@ for (let [key,value] of question.entries()) {
 
 const ans = parseInt(prompt('Write the correct answer'));
 console.log(question.get(ans === question.get('correct')));  //beauty of MAPS! xD
+*/
 
 
 
@@ -629,6 +632,55 @@ console.log(question.get(ans === question.get('correct')));  //beauty of MAPS! x
 
 /////////////////////////////////////////////////
 // Lecture: Classes
+
+// 1. class definitions are NOT hoisted. have first implement a class and only later in our code we can start using it.
+// 2. we can only add methods to classes but not properties.
+
+// ES5
+var Person5 = function(name, yearOfBirth, job) {
+    this.name = name;
+    this.yearOfBirth = yearOfBirth;
+    this.job = job;
+}
+
+Person5.prototype.calculateAge = function() {
+    var age = new Date().getFullYear - this.yearOfBirth;
+    console.log(age);
+}
+
+var john5 = new Person5('John', 1990, 'teacher');
+
+
+
+// ES6
+class Person6 {
+    constructor (name, yearOfBirth, job) {
+        this.name = name;
+        this.yearOfBirth = yearOfBirth;
+        this.job = job;
+    }
+
+    calculateAge() {
+        var age = new Date().getFullYear - this.yearOfBirth;
+        console.log(age);    
+    }
+
+    static greeting() {
+        console.log('Hey there!');
+    }
+}
+
+const john6 = new Person6('John', 1990, 'teacher');
+
+Person6.greeting();
+
+
+
+
+
+
+
+
 
 
 

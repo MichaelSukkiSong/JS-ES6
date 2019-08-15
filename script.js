@@ -787,33 +787,113 @@ johnAthlete6.wonMedal();
 // CODING CHALLENGE
 
 /*
-
 Suppose that you're working in a small town administration, and you're in charge of two town elements:
 1. Parks
 2. Streets
 
-It's a very small town, so right now there are only 3 parks and 4 streets. All parks and streets have a name and a build year.
+It's a very small town, so right now there are only 3 parks and 4 streets. All parks and streets have a 
+name and a build year.
 
 At an end-of-year meeting, your boss wants a final report with the following:
+
 1. Tree density of each park in the town (forumla: number of trees/park area)
 2. Average age of each town's park (forumla: sum of all ages/number of parks)
 3. The name of the park that has more than 1000 trees
+
 4. Total and average length of the town's streets
 5. Size classification of all streets: tiny/small/normal/big/huge. If the size is unknown, the default is normal
 
 All the report data should be printed to the console.
 
 HINT: Use some of the ES6 features: classes, subclasses, template strings, default parameters, maps, arrow functions, destructuring, etc.
-
 */
+var sum = 0, avgAge, parks, streets, treePark=[], totalLength = 0, avgLength;
+
+class Park {
+    constructor(name, buildYear, numTrees, area) {
+        this.name = name;
+        this.buildYear = buildYear;
+        this.numTrees = numTrees;
+        this.area = area;
+        this.age = new Date().getFullYear() - this.buildYear;
+    }
+
+    calcTreeDensity() {
+        return this.numTrees / this.area ;
+    }
+}
+
+class Street {
+    constructor(name, buildYear, length, size = 'normal') {
+        this.name = name;
+        this.buildYear = buildYear;
+        this.length = length;
+        this.size = size;
+        this.age = new Date().getFullYear() - this.buildYear;
+    }
+}
+
+const yellowStonePark = new Park('Yellow Stone Park', 1984, 1200, 800)
+const BigBearPark = new Park('Big Bear Park', 2002, 740, 300);
+const HydePArk = new Park('Hyde Park', 1859, 600, 1100);
+
+parks = [yellowStonePark, BigBearPark, HydePArk];
+
+const WallStreet = new Street('The Wall Street', 1789, 250, 'huge');
+const HeavenStreet = new Street('The Road to Heaven', 1990, 120, 'small');
+const OlympicStreet = new Street('The Olympic Big Street', 1988, 220, 'big');
+const OrgrimaStreet = new Street('Orgrima Street', 1650, 100);
+
+streets = [WallStreet, HeavenStreet, OlympicStreet, OrgrimaStreet];
+
+const parksTreeDensity = new Map();
+parksTreeDensity.set('Yellow Stone Park', yellowStonePark.calcTreeDensity());
+parksTreeDensity.set('Big Bear Park', BigBearPark.calcTreeDensity());
+parksTreeDensity.set('Hyde Park', HydePArk.calcTreeDensity());
+
+const parkAge = new Map();
+parkAge.set('Yellow Stone Park', yellowStonePark.age);
+parkAge.set('Big Bear Park', BigBearPark.age);
+parkAge.set('Hyde Park', HydePArk.age);
+
+parkAge.forEach((value) => sum+=value);
+avgAge =  sum / parkAge.size;
+
+function findTreePark(parkList) {
+    parkList.forEach(el => {
+        if(el.numTrees > 1000) {
+            treePark.push(el.name);
+        }
+    })
+}
+
+findTreePark(parks);
+
+const streetsLength = new Map();
+streetsLength.set('The Wall Street', WallStreet.length);
+streetsLength.set('The Road to Heaven', HeavenStreet.length);
+streetsLength.set('The Olympic Big Street', OlympicStreet.length);
+streetsLength.set('Orgrima Street', OrgrimaStreet.length);
+
+streetsLength.forEach((value) => totalLength += value)
+avgLength = totalLength / streetsLength.size;
+
+const streetsSize = new Map();
+streetsLength.set('The Wall Street', WallStreet.size);
+streetsLength.set('The Road to Heaven', HeavenStreet.size);
+streetsLength.set('The Olympic Big Street', OlympicStreet.size);
+streetsLength.set('Orgrima Street', OrgrimaStreet.size);
 
 
 
 
-
-
-
-
+console.log('---------Park Report---------');
+parksTreeDensity.forEach((value,key) => console.log(`${key} has tree density of ${value}`));
+console.log(`Average age of each town's park is ${avgAge}`);
+console.log(`${treePark} has more than 1000 trees!`);
+console.log('---------Street Report---------');
+console.log(`The total length is ${totalLength} and the average length is ${avgLength}`);
+streetsLength.forEach((value, key) => console.log(`${key} is size: ${value}`));
 
 
 

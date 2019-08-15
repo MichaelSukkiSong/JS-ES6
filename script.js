@@ -807,6 +807,7 @@ All the report data should be printed to the console.
 
 HINT: Use some of the ES6 features: classes, subclasses, template strings, default parameters, maps, arrow functions, destructuring, etc.
 */
+
 var sum = 0, avgAge, parks, streets, treePark=[], totalLength = 0, avgLength;
 
 class Park {
@@ -846,6 +847,8 @@ const OrgrimaStreet = new Street('Orgrima Street', 1650, 100);
 
 streets = [WallStreet, HeavenStreet, OlympicStreet, OrgrimaStreet];
 
+
+//parks solution part
 const parksTreeDensity = new Map();
 parksTreeDensity.set('Yellow Stone Park', yellowStonePark.calcTreeDensity());
 parksTreeDensity.set('Big Bear Park', BigBearPark.calcTreeDensity());
@@ -869,6 +872,7 @@ function findTreePark(parkList) {
 
 findTreePark(parks);
 
+//streets solution part
 const streetsLength = new Map();
 streetsLength.set('The Wall Street', WallStreet.length);
 streetsLength.set('The Road to Heaven', HeavenStreet.length);
@@ -885,8 +889,7 @@ streetsLength.set('The Olympic Big Street', OlympicStreet.size);
 streetsLength.set('Orgrima Street', OrgrimaStreet.size);
 
 
-
-
+// display to console
 console.log('---------Park Report---------');
 parksTreeDensity.forEach((value,key) => console.log(`${key} has tree density of ${value}`));
 console.log(`Average age of each town's park is ${avgAge}`);

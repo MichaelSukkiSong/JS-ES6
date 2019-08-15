@@ -413,7 +413,7 @@ console.log(ages.find(cur => cur >=18));
 /////////////////////////////////////////////////
 // Lecture: The Spread Operator
 
-// the operator is used in the function call
+// this operator is used in the function call
 
 /*
 function addFourAges (a, b, c, d) {
@@ -456,12 +456,12 @@ Array.from(all).forEach(cur => cur.style.color = 'purple');
 /////////////////////////////////////////////////
 // Lecture: Rest Parameters
 
-// the operator is used in the function declaraion to accept an arbitrary number of parameters.
+// used in the function declaraion to accept an arbitrary number of parameters.
 
 /*
 // ES5
 function isFullAge5() {
-    console.log(arguments);
+    console.log(arguments); //argument를 보여주는 내장(?)변수
     var argsArr = Array.prototype.slice.call(arguments);
 
     argsArr.forEach(function(cur) {
@@ -469,13 +469,14 @@ function isFullAge5() {
     })
 }
 
-//isFullAge5(1990, 1999, 1965);
-//isFullAge5(1990, 1999, 1965, 2016, 1987);
+isFullAge5(1990, 1999, 1965);
+isFullAge5(1990, 1999, 1965, 2016, 1987);
+*/
 
-
-
+/*
 // ES6
 function isFullAge6(...years) {
+    console.log(years);
     years.forEach(cur => console.log((2016 - cur) >= 18));
 }
 
@@ -490,7 +491,7 @@ isFullAge6(1990, 1999, 1965, 2016, 1987);
 /*
 // ES5
 function isFullAge5(limit) {
-    //console.log(arguments);
+    console.log(arguments);
     var argsArr = Array.prototype.slice.call(arguments, 1);
     console.log(argsArr);
 
@@ -499,7 +500,7 @@ function isFullAge5(limit) {
     })
 }
 
-//isFullAge5(16, 1990, 1999, 1965);
+isFullAge5(16, 1990, 1999, 1965);
 
 
 
@@ -565,7 +566,7 @@ var emily = new SmithPerson('Emily', 1983, 'Diaz', 'spanish');
 // Lecture: Maps
 
 // new data structure
-// up ubtil ES6 we had to use objects as hash maps, but now in ES6 we have maps
+// up until ES6 we had to use objects as hash maps, but now in ES6 we have maps
 // a new key value datastructure in ES6
 
 // 1. we can use anything as keys
@@ -588,37 +589,41 @@ question.set('correct', 3);
 question.set(true, 'Correct answer :D');
 question.set(false, 'Wrong, please try again!');
 
+console.log(question);
 // get method
 console.log(question.get('question'));
-//console.log(question.size);
+console.log(question.size);
 
 // has, delete method
 if(question.has(4)) {
     //question.delete(4);
-    //console.log('Answer 4 is here');
+    console.log('Answer 4 is here');
 };
 
 // clear method
 //question.clear();
-*/
 
 
 
 
-/*
+
+
 // looping
 
 // for each
-//question.forEach((value, key) => console.log(`This is ${key}, and it's set to ${value}`));
+question.forEach((value, key) => console.log(`This is ${key}, and it's set to ${value}`));
 
 // for of
 for (let [key,value] of question.entries()) {
+    console.log([key,value]);
     if (typeof(key) === 'number') {
         console.log(`Answer ${key}:${value}`);
     }
 }
 
+console.log(question.entries());
 const ans = parseInt(prompt('Write the correct answer'));
+
 console.log(question.get(ans === question.get('correct')));  //beauty of MAPS! xD
 */
 
@@ -636,6 +641,7 @@ console.log(question.get(ans === question.get('correct')));  //beauty of MAPS! x
 
 // 1. class definitions are NOT hoisted. have first implement a class and only later in our code we can start using it.
 // 2. we can only add methods to classes but not properties.
+
 /*
 // ES5
 var Person5 = function(name, yearOfBirth, job) {
@@ -650,7 +656,6 @@ Person5.prototype.calculateAge = function() {
 }
 
 var john5 = new Person5('John', 1990, 'teacher');
-
 
 
 // ES6
@@ -713,11 +718,9 @@ var Athlete5 = function(name, yearOfBirth, job, olympicGames, medals) {
 }
 
 
-
 // object.create allows us to manually set the prototype of an object.
 // we want the prototype of the athlete to be the prototype of the person, so they become connected.
 Athlete5.prototype = Object.create(Person5.prototype);
-
 
 Athlete5.prototype.wonMedal = function() {
     this.medals++;
@@ -725,17 +728,16 @@ Athlete5.prototype.wonMedal = function() {
 }
 
 
-
 var johnAthlete5 = new Athlete5('John', 1990, 'swimmer', 3, 10);
 johnAthlete5.calculateAge();
 johnAthlete5.wonMedal();
+*/
 
 
 
 
 
-
-
+/*
 // ES6
 // prefered (but understand it behind the scenes)
 class Person6 {
@@ -769,6 +771,8 @@ const johnAthlete6 = new Athlete6('John', 1990, 'swimmer', 3, 10);
 johnAthlete6.calculateAge();
 johnAthlete6.wonMedal();
 */
+
+
 
 
 

@@ -1,3 +1,4 @@
+
 // Lecture: let and const
 
 /*
@@ -26,14 +27,15 @@ function driversLicence5(passedTest) {
     console.log(firstName + ', born in ' + yearOfBirth + ', is now officially allowed to drive a car.');
 }
 
-
 driversLicence5(true);
+*/
 
 
+/*
 // ES6 (variables are block scoped) - {}로 둘러 쌓인 것이 block이라 함.
 function driversLicence6(passedTest) {
 
-    //console.log(firstName);
+    //console.log(firstName); //temporal dead zone(a technical term): the variables are actually hoisted, but we stil cannot access them until they are declared.
     let firstName;
     const yearOfBirth = 1990;
 
@@ -61,7 +63,7 @@ console.log(i);
 */
 
 /*
-// ES5에서는..2개의 i가 서로 동일하겟지
+// ES5에서는..(2개의 i가 서로 동일하겟지)
 var i = 23;
 
 for (var i = 0; i < 5; i++) {
@@ -86,17 +88,17 @@ console.log(i);
     var c = 3;
 }
 
-//console.log(a + b);
-console.log(c);
+//console.log(a + b); // CAN'T access them because they are block scoped
+console.log(c); // CAN access it because it is function scoped
+*/
 
-
-
+/*
 // ES5 (IIFE 방법..좀 구질구질하지)
 (function() {
-    var c =3;
+    var cc =3;
 })();
 
-//console.log(c);
+console.log(cc); // CAN'T access them
 */
 
 
@@ -249,9 +251,8 @@ function Person(name) {
     this.name = name;
 }
 
-
 // ES5
-// another cool trick while not using the var self=this;
+// another cool trick while not using var self=this;
 // Using bind() to set the this keyword.
 Person.prototype.myFriends5 = function(friends) {
 

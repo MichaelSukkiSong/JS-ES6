@@ -909,6 +909,7 @@ streetsLength.forEach((value, key) => console.log(`${key} is size: ${value}`));
 
 //Jonas
 
+/*
 class Element {
     constructor(name, buildYear) {
         this.name = name;
@@ -1002,7 +1003,7 @@ function reportStreets(s) {
 
 reportParks(allParks);
 reportStreets(allStreets);
-
+*/
 
 
 

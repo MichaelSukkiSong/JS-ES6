@@ -674,7 +674,7 @@ class Person6 {
         console.log(age);    
     }
 
-    static greeting() {
+    static greeting() { // Static methods aren't called on instances of the class. Instead, they're called on the class itself. These are often utility functions, such as functions to create or clone objects.
         console.log('Hey there!');
     }
 }

@@ -494,7 +494,7 @@ isFullAge6(1990, 1999, 1965, 2016, 1987);
 // ES5
 function isFullAge5(limit) {
     console.log(arguments);
-    var argsArr = Array.prototype.slice.call(arguments, 1);
+    var argsArr = Array.prototype.slice.call(arguments, 1); //call을 통해 array로 만들고 1번째부터 끝까지 slice한다.
     console.log(argsArr);
 
     argsArr.forEach(function(cur) {

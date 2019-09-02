@@ -336,9 +336,10 @@ console.log(retirement);
 /////////////////////////////////////////////////
 // Lecture: Arrays
 
-/*
-const boxes = document.querySelectorAll('.box');
 
+// const boxes = document.querySelectorAll('.box');
+
+/*
 // ES5
 // we used a hack to change the nodeList to an array
 // and used forEach to loop through elements
@@ -346,8 +347,9 @@ var boxesArr5 = Array.prototype.slice.call(boxes);
 boxesArr5.forEach(function(cur) {
     cur.style.backgroundColor = 'dodgerblue';
 });
+*/
 
-
+/*
 // ES6
 // we simply can use the from method to change it to an array
 const boxesArr6 = Array.from(boxes);

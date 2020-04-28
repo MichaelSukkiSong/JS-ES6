@@ -1,4 +1,3 @@
-
 // Lecture: let and const
 
 /*
@@ -15,7 +14,6 @@ name6 = 'Jane Miller';
 console.log(name6);
 */
 
-
 /*
 // ES5 (variables are function scoped)
 function driversLicence5(passedTest) {
@@ -29,7 +27,6 @@ function driversLicence5(passedTest) {
 
 driversLicence5(true);
 */
-
 
 /*
 // ES6 (variables are block scoped) - {}로 둘러 쌓인 것이 block이라 함.
@@ -47,9 +44,6 @@ function driversLicence6(passedTest) {
 
 driversLicence6(true);
 */
-
-
-
 
 /*
 // ES6 실용적인 예 (2개의 i는 서로 다르지)
@@ -72,10 +66,6 @@ for (var i = 0; i < 5; i++) {
 
 console.log(i);
 */
-
-
-
-
 
 /////////////////////////////////////////////////////
 // Lecture: Blocks and IIFEs
@@ -100,10 +90,6 @@ console.log(c); // CAN access it because it is function scoped
 
 console.log(cc); // CAN'T access them
 */
-
-
-
-
 
 //////////////////////////////////////////////////////////
 // Lecture: Strings
@@ -131,12 +117,6 @@ console.log(n.endsWith('th'));
 console.log(n.includes('oh'));
 console.log(`${firstName} `.repeat(5));
 */
-
-
-
-
-
-
 
 /////////////////////////////////////////////////
 // Lecture: Arrow functions
@@ -170,11 +150,6 @@ ages6 = years.map((el, index) => {
 console.log(ages6);
 */
 
-
-
-
-
-
 /////////////////////////////////////////////////
 // Lecture: Arrow functions 2
 
@@ -200,8 +175,6 @@ var box5 = {
 //box5.clickMe();
 */
 
-
-
 /*
 // ES6
 // By using the arrow function, we have access to the 'this' keyword of the method.
@@ -222,7 +195,6 @@ const box6 = {
 //box6.clickMe();
 */
 
-
 /*
 // another
 const box66 = {
@@ -241,9 +213,6 @@ const box66 = {
 
 //box66.clickMe();
 */
-
-
-
 
 /*
 //
@@ -276,13 +245,6 @@ Person.prototype.myFriends6 = function(friends) {
 new Person('Mike').myFriends6(friends);
 */
 
-
-
-
-
-
-
-
 /////////////////////////////////////////////////
 // Lecture: Destructuring
 
@@ -292,7 +254,6 @@ var john = ['John', 26];
 var name = john[0];
 var age = john[1];
 */
-
 
 /*
 // ES6
@@ -326,16 +287,8 @@ console.log(age2);
 console.log(retirement);
 */
 
-
-
-
-
-
-
-
 /////////////////////////////////////////////////
 // Lecture: Arrays
-
 
 // const boxes = document.querySelectorAll('.box');
 
@@ -356,10 +309,6 @@ const boxesArr6 = Array.from(boxes);
 boxesArr6.forEach(cur => cur.style.backgroundColor = 'dodgerblue');
 */
 
-
-
-
-
 // ES5
 // when we want to loop over an array, we used the forEach or the map method
 // but if we want to use the break/continue statement in a loop, we can't use forEach or map
@@ -374,8 +323,6 @@ for(var i = 0; i < boxesArr5.length; i++) {
 }
 */
 
-
-
 // ES6
 // We can use the for of.(where we can use the continue/break statement)
 // it's basically forEach/map combined with the for loop.
@@ -387,8 +334,6 @@ for (const cur of boxesArr6) {
     cur.textContent = 'I changed to blue!';
 }
 */
-
-
 
 /*
 // ES5
@@ -404,13 +349,6 @@ console.log(ages[full.indexOf(true)]);
 console.log(ages.findIndex(cur => cur >= 18));
 console.log(ages.find(cur => cur >=18));
 */
-
-
-
-
-
-
-
 
 /////////////////////////////////////////////////
 // Lecture: The Spread Operator
@@ -449,12 +387,6 @@ const all = [h, ...boxes];
 Array.from(all).forEach(cur => cur.style.color = 'purple');
 */
 
-
-
-
-
-
-
 /////////////////////////////////////////////////
 // Lecture: Rest Parameters
 
@@ -485,11 +417,6 @@ function isFullAge6(...years) {
 isFullAge6(1990, 1999, 1965, 2016, 1987);
 */
 
-
-
-
-
-
 /*
 // ES5
 function isFullAge5(limit) {
@@ -514,16 +441,8 @@ function isFullAge6(limit, ...years) {
 isFullAge6(16, 1990, 1999, 1965, 2016, 1987);
 */
 
-
-
-
-
-
-
-
 /////////////////////////////////////////////////
 // Lecture: Default Parameters
-
 
 /*
 // ES5
@@ -542,7 +461,6 @@ var john = new SmithPerson('John', 1990);
 var emily = new SmithPerson('Emily', 1983, 'Diaz', 'spanish');
 */
 
-
 /*
 // ES6
 function SmithPerson(firstName, yearOfBirth, lastName = 'Smith', nationality = 'american') {
@@ -556,14 +474,6 @@ var john = new SmithPerson('John', 1990);
 var emily = new SmithPerson('Emily', 1983, 'Diaz', 'spanish');
 */
 
-
-
-
-
-
-
-
-
 /////////////////////////////////////////////////
 // Lecture: Maps
 
@@ -575,8 +485,6 @@ var emily = new SmithPerson('Emily', 1983, 'Diaz', 'spanish');
 // 2. iterable
 // 3. easy to get the size of the map
 // 4. can easily add/remove data from a map
-
-
 
 /*
 // basic methods
@@ -630,15 +538,6 @@ const ans = parseInt(prompt('Write the correct answer'));
 console.log(question.get(ans === question.get('correct')));  //beauty of MAPS! xD
 */
 
-
-
-
-
-
-
-
-
-
 /////////////////////////////////////////////////
 // Lecture: Classes
 
@@ -684,16 +583,6 @@ const john6 = new Person6('John', 1990, 'teacher');
 Person6.greeting();
 */
 
-
-
-
-
-
-
-
-
-
-
 /////////////////////////////////////////////////
 // Lecture: Classes with Subclasses
 
@@ -736,10 +625,6 @@ johnAthlete5.calculateAge();
 johnAthlete5.wonMedal();
 */
 
-
-
-
-
 /*
 // ES6
 // prefered (but understand it behind the scenes)
@@ -774,17 +659,6 @@ const johnAthlete6 = new Athlete6('John', 1990, 'swimmer', 3, 10);
 johnAthlete6.calculateAge();
 johnAthlete6.wonMedal();
 */
-
-
-
-
-
-
-
-
-
-
-
 
 /////////////////////////////////
 // CODING CHALLENGE
@@ -902,14 +776,6 @@ console.log(`The total length is ${totalLength} and the average length is ${avgL
 streetsLength.forEach((value, key) => console.log(`${key} is size: ${value}`));
 */
 
-
-
-
-
-
-
-
-
 //Jonas
 
 /*
@@ -1007,25 +873,3 @@ function reportStreets(s) {
 reportParks(allParks);
 reportStreets(allStreets);
 */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

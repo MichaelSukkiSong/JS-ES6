@@ -685,6 +685,92 @@ All the report data should be printed to the console.
 HINT: Use some of the ES6 features: classes, subclasses, template strings, default parameters, maps, arrow functions, destructuring, etc.
 */
 /*
+class Infrastructure {
+  constructor(name, buildYear) {
+    this.name = name;
+    this.buildYear = buildYear;
+  }
+}
+
+class Park extends Infrastructure {
+  constructor(name, buildYear, numberOfTrees, area) {
+    super(name, buildYear);
+    this.numberOfTrees = numberOfTrees;
+    this.area = area;
+  }
+
+  treeDensity() {
+    var treeDensity = this.numberOfTrees / this.area;
+    console.log(`The tree density of ${this.name} is ${treeDensity}`);
+  }
+
+  calcAge() {
+    this.age = new Date().getFullYear() - this.buildYear;
+  }
+}
+
+function calcAvgAgeOfParks(parks) {
+  var sum = 0;
+  parks.forEach(cur => {
+    cur.calcAge();
+    sum += cur.age;
+  });
+  return (sum / parks.length).toFixed(2);
+}
+
+function ThousandTreesPark(parks) {
+  var ThousandTreesPark = parks.map(cur => {
+    if (cur.numberOfTrees > 1000) {
+      return cur.name;
+    }
+  });
+  return ThousandTreesPark;
+}
+
+class Street extends Infrastructure {
+  constructor(name, buildYear, length, size = "normal") {
+    super(name, buildYear);
+    this.length = length;
+    this.size = size;
+  }
+}
+
+function calcTotalLengthOfStreets(streets) {
+  var sum = 0;
+  streets.forEach(cur => {
+    sum += cur.length;
+  });
+  return sum;
+}
+
+const town = new Map();
+town.set("parks", [
+  new Park("Yellowstone", 1880, 2500, 1000),
+  new Park("greenland", 1990, 500, 200),
+  new Park("riverside", 2018, 100, 800)
+]);
+town.set("streets", [
+  new Street("The a", 1984, 800, "huge"),
+  new Street("The b", 2018, 10, "tiny"),
+  new Street("The c", 1996, 80),
+  new Street("The d", 2002, 50, "small")
+]);
+
+town.set("Average age of parks", calcAvgAgeOfParks(town.get("parks")));
+town.set(
+  "Park that has more than 1000 trees",
+  ThousandTreesPark(town.get("parks"))
+);
+town.set(
+  "Total length of streets",
+  calcTotalLengthOfStreets(town.get("streets"))
+);
+town.set(
+  "Average length of streets",
+  town.get("Total length of streets") / town.get("streets").length
+);
+*/
+/*
 var sum = 0, avgAge, parks, streets, treePark=[], totalLength = 0, avgLength;
 
 class Park {
